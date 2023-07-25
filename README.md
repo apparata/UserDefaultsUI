@@ -28,4 +28,5 @@ struct ContentView: View {
 
 Screenshot
 
-![cleanshot_2023-07-23_at_19 11 18_2x](https://github.com/apparata/UserDefaultsUI/assets/384210/b1adf30f-c21e-4e44-8d47-0f07bb2c2eea)
+![Screenshot](https://github.com/apparata/UserDefaultsUI/assets/384210/dd968515-f971-4fb5-9920-200b326fbfe1)
+
