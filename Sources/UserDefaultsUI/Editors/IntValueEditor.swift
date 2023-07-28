@@ -43,9 +43,10 @@ struct IntValueEditor: View {
     }
 }
 
-// Comment out until Xcode 15 goes live.
-/*
+#if swift(>=5.9)
+
 #Preview {
     IntValueEditor(value: 1337, apply: { value in print(value) })
 }
-*/
+
+#endif

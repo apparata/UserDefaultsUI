@@ -43,9 +43,10 @@ struct StringValueEditor: View {
     }
 }
 
-// Comment out until Xcode 15 goes live.
-/*
+#if swift(>=5.9)
+
 #Preview {
     StringValueEditor(text: "Hello", apply: { text in print(text) })
 }
-*/
+
+#endif

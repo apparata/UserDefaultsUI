@@ -44,9 +44,10 @@ struct DoubleValueEditor: View {
     }
 }
 
-// Comment out until Xcode 15 goes live.
-/*
+#if swift(>=5.9)
+
 #Preview {
     DoubleValueEditor(value: 3.141592654, apply: { value in print(value) })
 }
-*/
+
+#endif

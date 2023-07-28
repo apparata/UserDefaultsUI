@@ -105,8 +105,8 @@ public struct UserDefaultsBrowser: View {
 
 // MARK: - Preview
 
-// Comment out until Xcode 15 goes live.
-/*
+#if swift(>=5.9)
+
 #Preview {
     NavigationView {
         let actions = MockUserDefaultsActions(defaults: [
@@ -121,4 +121,5 @@ public struct UserDefaultsBrowser: View {
         UserDefaultsBrowser(model: model)
     }
 }
-*/
+
+#endif
