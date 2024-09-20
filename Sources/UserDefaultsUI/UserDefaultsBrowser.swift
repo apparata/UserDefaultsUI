@@ -40,6 +40,9 @@ public struct UserDefaultsBrowser: View {
                         Button("String") {
                             valueToAdd = .string("Placeholder")
                         }
+                        Button("Date") {
+                            valueToAdd = .date(Date.now)
+                        }
                     } label: {
                         Label("Add Key", systemImage: "plus")
                     }
@@ -77,6 +80,8 @@ public struct UserDefaultsBrowser: View {
                                 Text("\(String(value))")
                             case .string(let value):
                                 Text(value)
+                            case .date(let value):
+                                Text(value, style: .date)
                             case .other(_):
                                 Text("<\(entry.type)>")
                                     .foregroundStyle(.tertiary)
@@ -115,7 +120,8 @@ public struct UserDefaultsBrowser: View {
             "FloatKey": 3.14,
             "DoubleKey": 9.81,
             "StringKey": "String Value",
-            "DataKey": Data()
+            "DataKey": Data(),
+            "DateKey": Date.now
         ])
         let model = UserDefaultsModel(actions: actions, hidePrefixes: ["io.apparata."])
         UserDefaultsBrowser(model: model)

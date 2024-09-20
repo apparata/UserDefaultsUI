@@ -62,6 +62,13 @@ struct AddUserDefaultEditor: View {
                         dismiss()
                     }
                     
+                case .date(let value):
+                    DateValueEditor(date: value) { date in
+                        let key = key.trimmingCharacters(in: .whitespacesAndNewlines)
+                        model.actions.setValue(date, forKey: key)
+                        dismiss()
+                    }
+                    
                 case .other(_):
                     Text("Type is not editable")
                 }

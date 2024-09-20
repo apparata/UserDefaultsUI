@@ -47,6 +47,11 @@ struct UserDefaultEntryEditor: View {
                 StringValueEditor(text: value) { text in
                     model.actions.setValue(text, forKey: entry.key)
                 }
+
+            case .date(let value):
+                DateValueEditor(date: value) { date in
+                    model.actions.setValue(date, forKey: entry.key)
+                }
             
             case .other(_):
                 Text("\(entry.type) is not editable")

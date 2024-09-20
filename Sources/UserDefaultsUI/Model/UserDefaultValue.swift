@@ -7,6 +7,7 @@ enum UserDefaultValue: Identifiable {
     case float(Float)
     case double(Double)
     case string(String)
+    case date(Date)
     case other(Any)
     
     var id: String {
@@ -21,6 +22,8 @@ enum UserDefaultValue: Identifiable {
             return "double(\(value))"
         case .string(let value):
             return "string(\(value))"
+        case .date(let value):
+            return "date(\(value))"
         case .other(_):
             return "other"
         }
@@ -34,6 +37,8 @@ enum UserDefaultValue: Identifiable {
             self = value.asUserDefaultValue
         case let value as NSString:
             self = .string(value as String)
+        case let value as Date:
+            self = .date(value)
         default:
             self = .other(value)
         }

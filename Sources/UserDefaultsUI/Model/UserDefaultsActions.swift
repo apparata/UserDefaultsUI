@@ -15,5 +15,6 @@ public protocol UserDefaultsActions {
     func valueForKey(_ key: String) -> Float
     func valueForKey(_ key: String) -> Double
     func valueForKey(_ key: String) -> String?
+    func valueForKey(_ key: String) -> Date?
     func valueForKey(_ key: String) -> Any?
 }
