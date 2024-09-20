@@ -21,7 +21,6 @@ public class UserDefaultsModel: ObservableObject {
         
         didChangeSubscription = NotificationCenter.default
             .publisher(for: UserDefaults.didChangeNotification)
-            .dropFirst()
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 self?.refresh()
