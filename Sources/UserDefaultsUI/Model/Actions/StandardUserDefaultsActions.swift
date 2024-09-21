@@ -44,6 +44,10 @@ public struct StandardUserDefaultsActions: UserDefaultsActions {
         userDefaults.string(forKey: key)
     }
     
+    public func valueForKey(_ key: String) -> Date? {
+        userDefaults.object(forKey: key) as? Date
+    }
+
     public func valueForKey(_ key: String) -> Any? {
         userDefaults.object(forKey: key)
     }

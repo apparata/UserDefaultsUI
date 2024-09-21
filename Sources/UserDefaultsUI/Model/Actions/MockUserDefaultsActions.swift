@@ -47,6 +47,10 @@ public class MockUserDefaultsActions: UserDefaultsActions {
     public func valueForKey(_ key: String) -> String? {
         defaults[key] as? String
     }
+
+    public func valueForKey(_ key: String) -> Date? {
+        defaults[key] as? Date
+    }
     
     public func valueForKey(_ key: String) -> Any? {
         defaults[key]
