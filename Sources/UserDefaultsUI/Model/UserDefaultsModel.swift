@@ -87,30 +87,31 @@ private extension String {
 private extension String {
     
     var isUserKey: Bool {
-        !hasSystemPrefix
+        !isSystemKey
     }
     
     var isSystemKey: Bool {
-        hasSystemPrefix
-    }
-    
-    var hasSystemPrefix: Bool {
-        
-        let prefixes = [
+        let systemKeysAndPrefixes = [
             "AddingEmojiKeybordHandled",
             "AK",
             "Apple",
+            "CarCapabilities",
             "com.apple.",
             "INNext",
             "internalSettings.",
             "METAL_",
+            "MPDebugEUVolumeLimit",
+            "MSVLoggingMasterSwitchEnabledKey",
+            "NNext",
             "NS",
             "PK",
+            "shouldShowRSVPDataDetectors",
+            "TVRC",
             "WebKit"
         ]
 
-        for prefix in prefixes {
-            if hasPrefix(prefix) {
+        for systemKeyOrPrefix in systemKeysAndPrefixes {
+            if hasPrefix(systemKeyOrPrefix) {
                 return true
             }
         }
