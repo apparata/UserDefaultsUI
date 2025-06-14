@@ -21,9 +21,11 @@ public struct UserDefaultsBrowser: View {
                 AddUserDefaultEditor(value: value, model: model)
             }
             .navigationTitle("User Defaults")
+            #if !os(macOS)
             .navigationBarTitleDisplayMode(.inline)
+            #endif
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: toolbarItemPlacement) {
                     Menu {
                         Button("Bool") {
                             valueToAdd = .boolean(false)
@@ -48,6 +50,14 @@ public struct UserDefaultsBrowser: View {
                     }
                 }
             }
+    }
+
+    private var toolbarItemPlacement: ToolbarItemPlacement {
+        #if !os(macOS)
+        return .navigationBarTrailing
+        #else
+        return .automatic
+        #endif
     }
 
     // MARK: List of Entries

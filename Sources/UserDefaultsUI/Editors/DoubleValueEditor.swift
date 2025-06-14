@@ -19,7 +19,9 @@ struct DoubleValueEditor: View {
         VStack {
             TextField("", text: $text)
                 .labelsHidden()
+                #if !os(macOS)
                 .keyboardType(.numbersAndPunctuation)
+                #endif
                 .focused($isFocused)
                 .padding(.vertical, 4)
                 .padding(.horizontal, 8)

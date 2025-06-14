@@ -17,7 +17,11 @@ struct DateValueEditor: View {
         VStack {
             Text(date.ISO8601Format(.iso8601))
                 .frame(maxWidth: .infinity)
+                #if os(macOS)
+                .border(Color(NSColor.labelColor), width: 0.5)
+                #else
                 .border(Color(UIColor.label), width: 0.5)
+                #endif
             DatePicker(selection: $date) {
                 Text("New date")
             }

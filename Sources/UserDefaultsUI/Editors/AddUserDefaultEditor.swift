@@ -19,7 +19,9 @@ struct AddUserDefaultEditor: View {
                         .foregroundStyle(.secondary)
                     TextField("", text: $key)
                         .labelsHidden()
+                        #if !os(macOS)
                         .keyboardType(.numbersAndPunctuation)
+                        #endif
                         .padding(4)
                         .background(Color(white: 0, opacity: 0.05))
                         .cornerRadius(4)
@@ -76,9 +78,11 @@ struct AddUserDefaultEditor: View {
                 Spacer()
             }
             .navigationTitle("Add User Default")
+            #if !os(macOS)
             .navigationBarTitleDisplayMode(.inline)
+            #endif
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: toolbarItemPlacement) {
                     Button {
                         dismiss()
                     } label: {
@@ -87,6 +91,14 @@ struct AddUserDefaultEditor: View {
                 }
             }
         }
+    }
+
+    private var toolbarItemPlacement: ToolbarItemPlacement {
+        #if os(macOS)
+        return .automatic
+        #else
+        return .navigationBarTrailing
+        #endif
     }
 }
 
